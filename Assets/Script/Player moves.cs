@@ -12,13 +12,14 @@ public class Playermoves : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent.<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GetInput();
+        rb.linearVelocity = new Vector2(xinput*3,yinput*3);
     }
 
     void GetInput(){
