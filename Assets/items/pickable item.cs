@@ -17,4 +17,10 @@ public class pickableitem : MonoBehaviour
     {
         spriteR.sprite = itemobject.item_image;
     }
+
+    void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.CompareTag("Player")){
+            Destroy(gameObject);
+        }
+    }
 }
