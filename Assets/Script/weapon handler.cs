@@ -36,10 +36,10 @@ public class weaponhandler : MonoBehaviour
             facing = 0;
         }
 
-        transform.rotation =Quaternion.Euler(0, 0, (90 * facing)+90);
+        transform.rotation =Quaternion.Euler(0, 0, (90 * facing));
 
         if (Input.GetKeyDown(KeyCode.Space)){
-            Instantiate(hitbox,transform.position*Vector3.forwards*2,transform.rotation);
+            Instantiate(hitbox,transform.position+(transform.right*1f),transform.rotation);
         }
 
 
