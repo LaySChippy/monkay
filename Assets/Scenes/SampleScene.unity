@@ -4024,6 +4024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 304932102}
+  hitbox: {fileID: 1178054678228132530, guid: f92e3dc2b0ec0334ab555ec850acd675, type: 3}
 --- !u!212 &1451957359
 SpriteRenderer:
   m_ObjectHideFlags: 0

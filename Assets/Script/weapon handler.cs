@@ -6,6 +6,9 @@ public class weaponhandler : MonoBehaviour
     [SerializeField]
     private GameObject player;
     private int facing = 0;
+
+    [SerializeField]
+    private GameObject hitbox;
   
     void Start()
     {
@@ -33,7 +36,11 @@ public class weaponhandler : MonoBehaviour
             facing = 0;
         }
 
-        transform.rotation = new Quaternion(0, 0, (90 * facing)+90,);
+        transform.rotation =Quaternion.Euler(0, 0, (90 * facing)+90);
+
+        if (Input.GetKeyDown(KeyCode.Space)){
+            Instantiate(hitbox,transform.position*Vector3.forwards*2,transform.rotation);
+        }
 
 
     }
