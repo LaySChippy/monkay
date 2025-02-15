@@ -42,6 +42,6 @@ public class weaponhandler : MonoBehaviour
             Instantiate(hitbox,transform.position+(transform.right*1f),transform.rotation);
         }
 
-
+        
     }
 }
