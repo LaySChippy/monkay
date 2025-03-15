@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Genericenemy : MonoBehaviour
@@ -9,6 +8,8 @@ public class Genericenemy : MonoBehaviour
     [SerializeField] private float attackspd;
     [SerializeField] private int max_detection_range;
     [SerializeField] private string target_tag;
+
+    private Rigidbody2D rb;
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -22,10 +23,23 @@ public class Genericenemy : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    } 
+
+    void Update()
+    {
+        FindClosest();
+    }
+
     void FindClosest(){
-        GameObject[] player = GameObject.FindGameObjectsWithTag(target_tag);
-        GameObject closest_enemy=null;
-        float closest_distance = Mathf.Infinity;
+        GameObject player = GameObject.FindGameObjectWithTag(target_tag);
+        float dist = Vector2.Distance(player.transform.position, transform.position);
+        if (dist<max_detection_range){
+            var x = Vector2.MoveTowards(transform.position, player.transform.position, movespeed*Time.deltaTime);
+            rb.MovePosition(x);
+        }
     }
     
 }
